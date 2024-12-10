@@ -32,11 +32,11 @@
    --header-background-color: #220f0f;
    --highlight-color: #ffffff;
    --featured-font-family: "Rubik Glitch", sans-serif;
-   --character-bottom-image-src: url("../images/characters/kids-on-the-bike.svg");
+   --character-bottom-image-src: url("../image/characters/kids-on-the-bike.svg");
    --character-bottom-image-color: rgba(255, 255, 255, 0.1);
-   --character-top-image-src: url("../images/characters/inverted-world-monster.svg");
+   --character-top-image-src: url("../image/characters/inverted-world-monster.svg");
    --character-top-image-color: #000;
-   --background-lamp-image: url("../images/backgrounds/lamps-inverted.png");
+   --background-lamp-image: url("../image/backgrounds/lamps-inverted.png");
    --footer-background-color: #000;
 }
 
@@ -55,6 +55,11 @@
 * {
    margin: 0;
    box-sizing: border-box;
+   transition: 1s;
+}
+
+body {
+   background: var(--page-background);
 }
 
 h1,
@@ -84,9 +89,58 @@ button {
    font-weight: 900;
    font-family: var(--featured-font-family);
    font-size: 1.25rem;
+   text-transform: uppercase;
    cursor: pointer;
    transition: 1s;
 }
+
+main {
+   position: relative;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   position: relative;
+}
+
+main::before {
+   content: "";
+   width: 100%;
+   height: 100%;
+   position: absolute;
+   background-image: url(../image/banner/florest.webp);
+   background-repeat: no-repeat;
+   background-size:  cover;
+   background-clip: border-box;
+   background-position: center;
+   filter: saturate(0) invert(1) contrast(7);
+   opacity: 0.2;
+   /* background: var(--page-background); */
+   z-index: -1;
+}
+
+input,
+textarea {
+   border: 2px solid var(--primary-color-contrast);
+   background-color: var(--field-background-color);
+   color: var(--primary-color-contrast);
+   padding: 8px;
+}
+
+input,
+textarea {
+   margin-bottom: 24px;
+}
+
+label {
+   margin-bottom: 8px;
+}
+
+input:focus-visible,
+textarea:focus-visible {
+   outline: none;
+   border-color: black;
+}
+
 
 header {
    background-color: var(--header-background-color);
@@ -139,7 +193,7 @@ header::before {
    width: 100%;
    max-width: 900px;
    position: absolute;
-
+   
 }
 
 #top-characters {
@@ -159,15 +213,9 @@ header::before {
    mask-size: contain;
    mask-repeat: no-repeat;
    transform: rotate(180deg) scaleX(-1);
-   position: relative;
+   position: absolute;
 }
 
-main {
-   position: relative;
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-}
 
 section {
    display: flex;
@@ -319,3 +367,43 @@ section {
    background-color: var(--primary-color-contrast);
    color: var(--field-background-color);
 }
+
+footer {
+   padding: 60px 0;
+   background-color: var(--footer-background-color);
+   text-align: center;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   position: relative;
+   overflow: hidden;
+ }
+ 
+ footer p {
+   max-width: 700px;
+   margin-bottom: 24px;
+ }
+ 
+ footer::before,
+ footer::after {
+   content: "";
+   width: 300px;
+   height: 200px;
+   background: url("../images/footer/tape.svg") no-repeat;
+   background-size: contain;
+   position: absolute;
+   bottom: -30px;
+ }
+ 
+ footer::before {
+   left: -50px;
+   transform: rotateZ(-10deg);
+ }
+ 
+ footer::after {
+   right: -50px;
+   transform: rotateZ(10deg);
+ }
+
+
+ 
