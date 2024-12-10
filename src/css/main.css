@@ -16,11 +16,11 @@
    --header-background-color: #e3e3e3;
    --highlight-color: #000000;
    --featured-font-family: "Archivo", sans-serif;
-   --character-top-image-src: url("../images/characters/kids-on-the-bike.svg");
+   --character-top-image-src: url("../image/characters/kids-on-the-bike.svg");
    --character-top-image-color: #ffffff;
-   --character-bottom-image-src: url("../images/characters/inverted-world-monster.svg");
+   --character-bottom-image-src: url("../image/characters/inverted-world-monster.svg");
    --character-bottom-image-color: #e5e5e5;
-   --background-lamp-image: url("../images/backgrounds/lamps.png");
+   --background-lamp-image: url("../image/backgrounds/lamps.png");
    --footer-background-color: #b5bbbf;
 }
 
@@ -135,3 +135,36 @@ header::before {
    color: var(--primary-color-contrast);
 }
 
+.world-characters {
+   width: 100%;
+   max-width: 900px;
+   position: absolute;
+
+}
+
+#top-characters {
+   height: 100%;
+   background-color: var(--character-top-image-color);
+   mask-image: var(--character-top-image-src);
+   mask-position: bottom;
+   mask-size: contain;
+   mask-repeat: no-repeat;
+}
+
+#bottom-characters {
+   height: 100%;
+   background-color: var(--character-bottom-image-color);
+   mask-image: var(--character-bottom-image-src);
+   mask-position: bottom;
+   mask-size: contain;
+   mask-repeat: no-repeat;
+   transform: rotate(180deg) scaleX(-1);
+   /* position: relative; */
+}
+
+main {
+   position: relative;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
